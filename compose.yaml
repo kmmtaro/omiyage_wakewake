@@ -1,0 +1,14 @@
+services:
+  app:
+    build:
+      context: .
+    tty: true
+    volumes:
+      - ./src/omiyage-wakewake:/app
+    environment:
+      - WATCHPACK_POLLING=true
+      - NODE_ENV=development
+    command: sh -c "pnpm dev"
+    ports:
+      - "3000:3000"
+    restart: always
